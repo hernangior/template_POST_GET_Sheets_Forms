@@ -17,7 +17,7 @@
                <img class="d-block mx-auto mb-4" src="assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
                <h2>Budget Test</h2>
                <div id="div_deploy_data">
-                  &nbsp; - Deploy date: 31/07/2023 11:39 - success
+                  &nbsp; - Deploy date: 31/07/2023 11:42 - success
                </div>
                <p class="lead">Function JS commited</p>
             </div>
@@ -25,13 +25,13 @@
             <form>
                <div class="row g-3">
                   <div class="col-sm-3">
-                     <label for="firstName" class="form-label">Id</label>
-                     <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                     <label for="contentId" class="form-label">Id</label>
+                     <input type="text" class="form-control" id="contentId" placeholder="" value="" required>
                   </div>
                   <br>
                   <div class="col-sm-3">
-                     <label for="firstName" class="form-label">Description</label>
-                     <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                     <label for="contentDesc" class="form-label">Description</label>
+                     <input type="text" class="form-control" id="contentDesc" placeholder="" value="" required>
                   </div>
                </div>
             </form>
@@ -78,15 +78,15 @@
          function test(){
 
              // list of fields
-             var id              = "NAME";
-             var description     = "EMAIL";
+             var id              = document.getElementById('contentId').value;
+             var description     = document.getElementById('contentDesc').value;
 
              // ajax for send request
              $.ajax({
                  type: "POST",
                  data: {
                      "entry.788923433"  : id,
-                     "entry.414555233": description,
+                     "entry.414555233"  : description,
                  },
                  cache: false,
                  url: 

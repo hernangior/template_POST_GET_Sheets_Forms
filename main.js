@@ -1,3 +1,21 @@
+function showDialogSuccess(){
+    Swal.fire(
+        'Success!',
+        'Successfully send!',
+        'success'
+      );
+    document.getElementById('contentId').value = '';
+    document.getElementById('contentDesc').value = '';
+}
+
+function showDialogError(){
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong in sending!'
+      });
+}
+
 function doPOST(){
 
     // list of fields
@@ -19,14 +37,17 @@ function doPOST(){
         success: function() {
             // Success section
             console.log('sucessfully send!');
+            showDialogSuccess();
         },
         error: function(error) {
             if ((!error.responseText) && (!error.status)){
                 // Success section
                 console.log('sucessfully send!');
+                showDialogSuccess();
             }else{
                 // Fail section
-                console.log('filed to send...');
+                console.log('failed to send...');
+                showDialogError();
             }
         },
     })
@@ -43,7 +64,7 @@ function doGET(){
         "2PACX-1vSjdzAYbEobDW5nNAeCIiExTzkCnZ7_APZ1CBj_G-AjSklucvYtCZevSiAPTym4ItyI_WVAHw8o0U_K"+
         "/pub?gid=103926250&single=true&output=csv",
         success: function(data) {
-            
+
           // Success section
           //document.getElementById("ajax_result").innerText = data
 
@@ -60,11 +81,24 @@ function doGET(){
                 console.table(item_);
             });
           });
-          document.getElementById("ajax_result").innerText = data
+          document.getElementById("ajax_result").innerText = data;
+
+          Swal.fire(
+            'Success!',
+            'Successfully received!',
+            'success'
+          );
 
         },
         error: function(error) {
             console.log(error);
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong in receive data!'
+              });
+
         },
     })
 

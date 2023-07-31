@@ -1,4 +1,4 @@
-function test(){
+function doPOST(){
 
     // list of fields
     var id              = document.getElementById('contentId').value;
@@ -30,4 +30,32 @@ function test(){
             }
         },
     })
+};
+
+function doGET(){
+    let url = 
+    "https://docs.google.com/spreadsheets/d/e/"+
+    "2PACX-1vTmm0nPchYTIJ8_"+
+    "FaRiUVgRXb0a9Sy0jTMWFGfs_"+
+    "F8o30bM1OD7a1_Z8Ra62BP6B1U50e35HSiZD3Wa/"+
+    "pub?gid=0&single=true&output=csv";
+    $.get(url, 
+    function(data, status){
+      if (status == "success"){
+          //console.log(status);
+          let i = 1;	
+          // get all data, separated in lines
+          var array_list = data.split("\r\n");
+          // search line by line e breaks fields
+          array_list.forEach((item) => {
+            console.log("# line "+i+"________________________");i++;
+            // when the fields are breakeds
+            var item_list = item.split(",");
+            item_list.forEach((item_) => {
+                console.table(item_);
+            });
+          });
+          document.getElementById("ajax_result").innerText = data
+      }
+    });
 };

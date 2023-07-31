@@ -33,9 +33,6 @@ function doPOST(){
 };
 
 function doGET(){
-    
-    $.get("https://docs.google.com/spreadsheets/d/e/2PACX-1vSjdzAYbEobDW5nNAeCIiExTzkCnZ7_APZ1CBj_G-AjSklucvYtCZevSiAPTym4ItyI_WVAHw8o0U_K/pub?gid=103926250&single=true&output=csv", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-      });
 
 };
+

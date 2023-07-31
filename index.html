@@ -46,7 +46,7 @@
             <hr class="my-4">
             <h2>test of GET</h2>
             <hr class="my-4">
-            <a class="w-100 btn btn-primary btn-lg" onclick="doGET()">Receive</a>
+            <a class="w-100 btn btn-primary btn-lg" onclick="getData()">Receive</a>
             <div id="ajax_result"></div>
 
          </main>
@@ -57,6 +57,36 @@
       <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
       
       <script src="main.js"></script>
+
+      <script>
+        		function getData(){
+			let url = 
+			"https://docs.google.com/spreadsheets/d/e/"+
+			"2PACX-1vTmm0nPchYTIJ8_"+
+			"FaRiUVgRXb0a9Sy0jTMWFGfs_"+
+			"F8o30bM1OD7a1_Z8Ra62BP6B1U50e35HSiZD3Wa/"+
+			"pub?gid=0&single=true&output=csv";
+			$.get(url, 
+			function(data, status){
+			  if (status == "success"){
+				  //console.log(status);
+				  let i = 1;	
+				  // get all data, separated in lines
+				  var array_list = data.split("\r\n");
+				  // search line by line e breaks fields
+				  array_list.forEach((item) => {
+					console.log("# line "+i+"________________________");i++;
+					// when the fields are breakeds
+					var item_list = item.split(",");
+					item_list.forEach((item_) => {
+						console.table(item_);
+					});
+				  });
+				  document.getElementById("ajax_result").innerText = data
+			  }
+			});
+		};
+      </script>
 
    </body>
 </html>

@@ -17,9 +17,9 @@
                <img class="d-block mx-auto mb-4" src="assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
                <h2>Budget Test</h2>
                <div id="div_deploy_data">
-                  &nbsp; - Deploy date: 19/06/2023 08:59 - success
+                  &nbsp; - Deploy date: 31/07/2023 11:39 - success
                </div>
-               <p class="lead">First Commit</p>
+               <p class="lead">Function JS commited</p>
             </div>
 
             <form>
@@ -38,7 +38,7 @@
 
             <hr class="my-4">
             <a class="w-100 btn btn-primary btn-lg" onclick="test()">SEND</a>
-            
+
          </main>
       </div>
 
@@ -76,23 +76,22 @@
          };
              
          function test(){
+
              // list of fields
-             var name      = "NAME";
-             var email     = "EMAIL";
-             var message   = "MESSAGE";
-             var firstName = "FIRST NAME";
+             var id              = "NAME";
+             var description     = "EMAIL";
+
              // ajax for send request
              $.ajax({
                  type: "POST",
                  data: {
-                     "entry.52904792"  : name,
-                     "entry.1665733173": email,
-                     "entry.1129926948": message,
+                     "entry.788923433"  : id,
+                     "entry.414555233": description,
                  },
                  cache: false,
                  url: 
                  "https://docs.google.com/forms/u/0/d/e/"+
-                 "1FAIpQLScSb0xiEF75ZZwf9WGCbX6OSu6uhuM6LqP-iYrmbMaHjate-Q"+
+                 "1FAIpQLSd0fzndGNUiiPaW_I0JhRDIf6plSUlFUQ8i3TIC_JF4-8fBYQ"+
                  "/formResponse",
                  success: function() {
                      // Success section

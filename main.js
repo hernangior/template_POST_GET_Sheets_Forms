@@ -42,10 +42,26 @@ function doGET(){
         "https://docs.google.com/spreadsheets/d/e/"+
         "2PACX-1vSjdzAYbEobDW5nNAeCIiExTzkCnZ7_APZ1CBj_G-AjSklucvYtCZevSiAPTym4ItyI_WVAHw8o0U_K"+
         "/pub?gid=103926250&single=true&output=csv",
-        success: function(response) {
-            // Success section
-            document.getElementById("ajax_result").innerText = response
-            console.log('sucessfully send!');
+        success: function(data) {
+            
+          // Success section
+          //document.getElementById("ajax_result").innerText = data
+
+          //console.log(status);
+          let i = 1;	
+          // get all data, separated in lines
+          var array_list = data.split("\r\n");
+          // search line by line e breaks fields
+          array_list.forEach((item) => {
+            console.log("# line "+i+"________________________");i++;
+            // when the fields are breakeds
+            var item_list = item.split(",");
+            item_list.forEach((item_) => {
+                console.table(item_);
+            });
+          });
+          document.getElementById("ajax_result").innerText = data
+
         },
         error: function(error) {
             console.log(error);

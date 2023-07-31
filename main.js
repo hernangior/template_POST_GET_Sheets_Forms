@@ -33,6 +33,26 @@ function doPOST(){
 };
 
 function doGET(){
+
+    // ajax for send request
+    $.ajax({
+        type: "GET",
+        cache: false,
+        url: 
+        "https://docs.google.com/spreadsheets/d/e/"+
+        "2PACX-1vSjdzAYbEobDW5nNAeCIiExTzkCnZ7_APZ1CBj_G-AjSklucvYtCZevSiAPTym4ItyI_WVAHw8o0U_K"+
+        "/pub?gid=103926250&single=true&output=csv",
+        success: function(response) {
+            // Success section
+            document.getElementById("ajax_result").innerText = response
+            console.log('sucessfully send!');
+        },
+        error: function(error) {
+            console.log(error);
+        },
+    })
+
+    /*
     let url = 
     "https://docs.google.com/spreadsheets/d/e/"+
     "2PACX-1vSjdzAYbEobDW5nNAeCIiExTzkCnZ7_APZ1CBj_G-AjSklucvYtCZevSiAPTym4ItyI_WVAHw8o0U_K"+
@@ -56,4 +76,5 @@ function doGET(){
           document.getElementById("ajax_result").innerText = data
       }
     });
+    */
 };

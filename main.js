@@ -34,5 +34,27 @@ function doPOST(){
 
 function doGET(){
 
+    // ajax for send request
+    $.ajax({
+        type: "GET",
+        data: {
+        },
+        cache: false,
+        url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSjdzAYbEobDW5nNAeCIiExTzkCnZ7_APZ1CBj_G-AjSklucvYtCZevSiAPTym4ItyI_WVAHw8o0U_K/pubhtml?gid=103926250&single=true",
+        success: function() {
+            // Success section
+            console.log('sucessfully send!');
+        },
+        error: function(error) {
+            if ((!error.responseText) && (!error.status)){
+                // Success section
+                console.log('sucessfully send!');
+            }else{
+                // Fail section
+                console.log('filed to send...');
+            }
+        },
+    })
+
 };
 

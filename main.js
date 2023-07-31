@@ -33,27 +33,27 @@ function doPOST(){
 };
 
 function doGET(){
-
-    // ajax for send request
-    $.ajax({
-        type: "GET",
-        crossDomain: true,
-        cache: false,
-        url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSjdzAYbEobDW5nNAeCIiExTzkCnZ7_APZ1CBj_G-AjSklucvYtCZevSiAPTym4ItyI_WVAHw8o0U_K/pubhtml?gid=103926250&single=true",
-        success: function() {
-            // Success section
-            console.log('sucessfully COMPLETED send!');
-        },
-        error: function(error) {
-            if ((!error.responseText) && (!error.status)){
-                // Success section
-                console.log('sucessfully NO ERROR STATUS send!');
-            }else{
-                // Fail section
-                console.log('filed to send...');
-            }
-        },
-    })
-
+    let url = 
+    "https://docs.google.com/spreadsheets/d/e/"+
+    "2PACX-1vSjdzAYbEobDW5nNAeCIiExTzkCnZ7_APZ1CBj_G-AjSklucvYtCZevSiAPTym4ItyI_WVAHw8o0U_K"+
+    "/pub?gid=103926250&single=true&output=csv";
+    $.get(url, 
+    function(data, status){
+      if (status == "success"){
+          //console.log(status);
+          let i = 1;	
+          // get all data, separated in lines
+          var array_list = data.split("\r\n");
+          // search line by line e breaks fields
+          array_list.forEach((item) => {
+            console.log("# line "+i+"________________________");i++;
+            // when the fields are breakeds
+            var item_list = item.split(",");
+            item_list.forEach((item_) => {
+                console.table(item_);
+            });
+          });
+          document.getElementById("ajax_result").innerText = data
+      }
+    });
 };
-

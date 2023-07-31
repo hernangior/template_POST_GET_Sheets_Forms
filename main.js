@@ -38,7 +38,6 @@ function doGET(){
     $.ajax({
         type: "GET",
         crossDomain: true,
-        dataType: 'jsonp',
         cache: false,
         url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSjdzAYbEobDW5nNAeCIiExTzkCnZ7_APZ1CBj_G-AjSklucvYtCZevSiAPTym4ItyI_WVAHw8o0U_K/pubhtml?gid=103926250&single=true",
         success: function() {

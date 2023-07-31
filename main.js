@@ -35,10 +35,8 @@ function doPOST(){
 function doGET(){
     let url = 
     "https://docs.google.com/spreadsheets/d/e/"+
-    "2PACX-1vTmm0nPchYTIJ8_"+
-    "FaRiUVgRXb0a9Sy0jTMWFGfs_"+
-    "F8o30bM1OD7a1_Z8Ra62BP6B1U50e35HSiZD3Wa/"+
-    "pub?gid=0&single=true&output=csv";
+    "2PACX-1vSjdzAYbEobDW5nNAeCIiExTzkCnZ7_APZ1CBj_G-AjSklucvYtCZevSiAPTym4ItyI_WVAHw8o0U_K"+
+    "/pub?gid=103926250&single=true&output=csv";
     $.get(url, 
     function(data, status){
       if (status == "success"){
